@@ -26,7 +26,7 @@ export function* login_function(action) {
   let id = action.id
   let password = action.password
   const hash = new Buffer(`${id}:${password}`).toString('base64')
-  const response = yield call(fetch, 'http://127.0.0.1:8000/meetings/',
+  const response = yield call(fetch, 'http://ec2-3-18-208-118.us-east-2.compute.amazonaws.com:8000/meetings/',
     {
       method : 'GET',
       headers : { 'Authorization' : `Basic ${hash}` }
@@ -48,7 +48,7 @@ export function* login_function(action) {
 }
 
 export function* delete_function(action) {
-    const response = yield call(fetch, "http://127.0.0.1:8000/meetings/" + action.id + "/",
+    const response = yield call(fetch, "http://ec2-3-18-208-118.us-east-2.compute.amazonaws.com:8000/meetings/" + action.id + "/",
       {
         method: 'DELETE',
         headers: { 'Authorization' : `Basic ${localStorage.getItem("token")}` }
@@ -71,7 +71,7 @@ export function* post_function(action) {
     let sinceWhen = action.sinceWhen
     let tilWhen = action.tilWhen
     const input_data = JSON.stringify({ sinceWhen: sinceWhen, tilWhen: tilWhen });
-    const response = yield call(fetch, "http://127.0.0.1:8000/meetings/",
+    const response = yield call(fetch, "http://ec2-3-18-208-118.us-east-2.compute.amazonaws.com:8000/meetings/",
       {
         method: 'POST',
         headers: {
