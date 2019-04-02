@@ -6,3 +6,5 @@
 2. 백 엔드 (장고)
 - settings.py에서 ALLOWED_HOSTS에 http://ec2-3-18-208-118.us-east-2.compute.amazonaws.com 추가
 - 서버 실행 방법 : source env/bin/activate -> python manage.py runserver 0.0.0.0:8000
+
+3. 접속 주소 : http://3.18.208.118:3000/
